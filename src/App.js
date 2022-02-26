@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import './cssItems.css'
+
+import { Route,Routes } from 'react-router-dom';
+
+import Main from './main/Main';
+import SignIn from './signin/SignIn';
+// import SignIn from './signin/testSignIn';
+import SignUp from './signup/SignUp';
+import NotFound from './notfound/NotFound';
+
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil"
+
+// import {testRecoil} from "./state"
 
 function App() {
+  // const [test,setTest] = useRecoilState(testRecoil)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Routes>
+      <Route path="/" element={<Main/>}></Route>
+      <Route path="/signin/*" element={<SignIn/>}></Route>
+      <Route path="/signup/*" element={<SignUp/>}></Route>
+      <Route path="/*" element={<NotFound/>}></Route>
+      </Routes>
+
+      {/* {test} */}
     </div>
   );
 }

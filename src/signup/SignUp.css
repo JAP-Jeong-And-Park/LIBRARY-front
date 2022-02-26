@@ -1,0 +1,141 @@
+/* 선과 점과 관련 */
+
+.columLine{
+    height: 100vh;
+    width: 15px;
+    background-color: black;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.circle{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px 50px 50px 50px;
+    background-color: black;
+    position: relative;
+    right: 45px;
+    font-size: xx-large;
+
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.innerWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.signUpInputContainer{
+    margin-top: 80px;
+    /* border-radius: 20px; */
+    display: flex;
+    padding: 10px;
+    /* border: black 2px solid; */
+    border-bottom: black 2px solid;
+}
+
+
+.signUpInput{
+    font-size: xx-large;
+    width: 450px;
+    height: 60px;
+    outline: none;
+    border:none;
+    word-spacing: 10px;
+}
+
+.showPasswordContainer{
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.showPassword{
+    background-image: url("../images/eye.svg");
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.noShowPassword{
+    background-image: url("../images/noeye.svg");
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.inputError{
+    margin-top: 10px;
+    color: rgb(211, 0, 0);
+    font-weight: bold;
+    /* font-weight: 500; */
+    
+}
+
+.signUpLeft{
+    background-color: white;
+    width: 10px;
+}
+
+
+
+
+.scrollerContainer > button{
+    position: fixed;
+    right: 15vh;
+
+    width:170px;
+    height: 60px;
+    background-color: #755330;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: x-large;
+    border-radius: 15px;
+    cursor: pointer ;
+    box-shadow: 3px 3px #83786d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* visibility:hidden; */
+
+    transition: "opacity 500ms , visibility 500ms",
+}
+
+.scrollerContainer > button:hover{
+    background-color: #a17243;
+}
+
+.scrollUpButton{
+    top: 10vh;
+}
+.scrollUpButton:active{
+    top: 10.2vh;
+    right:14.8vh;
+    box-shadow: none;
+}
+
+.scrollDownButton{
+    bottom:10vh;
+}
+.scrollDownButton:active{
+    bottom: 9.8vh;   
+    right: 14.8;
+    box-shadow: none;
+}
+

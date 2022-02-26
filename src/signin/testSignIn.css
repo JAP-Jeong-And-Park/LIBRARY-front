@@ -1,0 +1,19 @@
+
+
+.singInBackGround{
+    background-image: url("../images/signInImage.jpg");
+    width: 100%;
+    height: 100vh;
+    z-index: -4;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* filter: brightness(30%);  */
+}
+
+.signInBox{
+    background-color: whitesmoke;
+    width: 600px;
+    height: 700px;
+    position: fixed;
+    border-radius: 20px;
+}

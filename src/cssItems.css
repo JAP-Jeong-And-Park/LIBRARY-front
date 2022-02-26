@@ -1,0 +1,33 @@
+.baseContainer{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+    width: 76%;
+    height: 100vh;
+    min-width: 800px;
+    display: flex;
+    flex-direction: row;
+}
+
+.flexCCCContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.left{
+    width: 10px;
+    opacity: 0;
+}
+
+
+/* #755330 */

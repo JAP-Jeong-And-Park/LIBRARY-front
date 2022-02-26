@@ -1,0 +1,114 @@
+.signInBox{
+    width: 1200px;
+    height: 740px; 
+
+    background-size: cover;
+
+
+    background-image: url("../images/loginModal.png");
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.signInLeft{
+    float: left;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 100px;
+}
+
+.signInright{
+    float: right;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-right: 70px;
+
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+
+.signInInputContainer{
+    display: flex;
+    /* padding:  */
+    border-bottom: #83786d 2px solid;
+    margin-bottom: 50px;
+}
+
+.signInInput{
+    font-size: x-large;
+    border: none;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    /* margin-top: 0px; */
+    margin-bottom: 10px;
+    color: #5d3c1a;
+}
+.signInInput::placeholder{
+    font-size: 20px;
+}
+
+.singInButton{
+    margin-top: 75px;
+    width: 250px;
+    height: 50px;
+    font-size: large;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: #5d3c1a;
+    color: white;
+    cursor: pointer;
+    box-shadow: 3px 3px #83786d;
+    position: relative;
+}
+.singInButton:hover{
+    background-color: #a17243;
+}
+.singInButton:active{
+    left: 3px;
+    top:3px;
+    box-shadow: none;
+}
+
+
+.signInOAuth{
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 90px;
+}
+
+
+.siginInToSignUp{
+    position: absolute;
+    right: 130px;
+    bottom: 70px;
+    display: flex;
+    font-weight:500;
+}
+
+.goToSignUp{
+    color: #5d3c1a;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: large;
+}
