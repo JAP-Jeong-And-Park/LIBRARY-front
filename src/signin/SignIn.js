@@ -1,80 +1,77 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from "axios";
 
 import "./SignIn.css";
+import SignInComponent from "./SignInComponent";
 
 const SignIn = () => {
-  const [id,setId] = useState("")
-  const [password,setPassword] = useState("")
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
   const onChange = (e) => {
-    const {target : {name,value}} = e;
-    if (name === "id"){
-        setId(value)
-    } else if (name === "password"){
-        setPassword(value)
+    const {
+      target: { name, value },
+    } = e;
+    if (name === "id") {
+      setId(value);
+    } else if (name === "password") {
+      setPassword(value);
     }
-}
+  };
 
-const checkEnter = (e) => {
+  const checkEnter = (e) => {
     if (e.key == "Enter") {
-        onSubmit()
+      onSubmit();
     }
-}
+  };
 
-const onSubmit = () => {
+  const onSubmit = () => {
+    if (checkValue()) {
+      const url = "url";
+      axios
+        .post(`${url}/signin`, {
+          id: id,
+          password: password,
+        })
+        .then((reponse) => {
+          console.log("response", JSON.stringify(reponse, null, 2));
+        })
+        .catch((error) => {
+          console.log("failed", error);
+        });
+    }
+  };
 
-}
+  // 형식에 맞지 않는 값은 애초에 보내지 않는다
+  // 형식은 회원가입부분에서 가져온 것이다
+  const checkValue = () => {
+    const checkName = /^[가-힣a-zA-Z0-9\s_.]{2,30}$/;
+    const checkEmail = /^[a-z0-9\.\-_]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
+    const checkPassword =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,25}$/;
+
+    console.log(id);
+    console.log(password);
+
+    if (
+      (checkName.test(id) || checkEmail.test(id)) &&
+      checkPassword.test(password)
+    ) {
+      console.log(1);
+      return 1;
+    }
+    console.log(0);
+    return 0;
+  };
 
   return (
     <>
-      <div className="signInBox">
-
-        <div className="signInLeft">
-          <div className="signInInputContainer">
-            <div className="left" />
-            <input
-              name = "id"
-              className="signInInput"
-              placeholder="이메일 또는 도서관이름"
-              type="text"
-              spellCheck="false"
-              value={id}
-              onChange={onChange}
-              onKeyPress={checkEnter}
-            />
-          </div>
-          <div className="signInInputContainer">
-            <div className="left" />
-            <input 
-            name = "password"
-            className="signInInput" 
-            placeholder="비밀번호" 
-            type="password"
-            value={password}
-            onChange={onChange}
-            />
-          </div>
-          <button className="singInButton">제출</button>
-        </div>
-
-        {/* 회원가입부분도 넣어야함 */}
-        <div className="signInright">
-            <div className="signInOAuthes">
-                <div className="signInOAuth">깃허브로 로그인</div>
-                <div className="signInOAuth">카카오톡으로 로그인</div>
-                <div className="signInOAuth">카카오톡으로 로그인</div>
-            </div>
-
-        </div>
-
-        <span className="siginInToSignUp">
-            아직 내 독서기록장이 없다면?&emsp;
-        <Link to='/signup' className="goToSignUp">회원가입하기</Link>
-        </span>
-        
-
-      </div>
+      <SignInComponent
+        id={id}
+        onChange={onChange}
+        checkEnter={checkEnter}
+        password={password}
+        onSubmit={onSubmit}
+      />
     </>
   );
 };

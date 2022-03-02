@@ -53,17 +53,29 @@ const SignUpInput = () => {
       if (checkValues()) {
         // 서버통신
         const url = "url"
-        try {
-          axios.post(`${url}`,{
-            headers : {
-              email : email,
-              name : name,
-              password : password,
-            }
-          })
-        } catch {
-          // 오류 발생시
-        }
+
+        // try {
+        //   axios.post(`${url}`,{
+        //     headers : {
+        //       email : email,
+        //       name : name,
+        //       password : password,
+        //     }
+        //   })
+        // } catch {
+        //   // 오류 발생시
+        // }
+
+        axios.post(`${url}/signup`,{
+          email:email,
+          name: name,
+          password: password,
+        }).then(response => {
+          console.log("response",JSON.stringify(response,null,2))
+        }).catch(error => {
+          console.log('failed',error)
+        })
+
       }
     }
   }, [clickState]);
