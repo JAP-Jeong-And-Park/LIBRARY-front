@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GoogleLogin from 'react-google-login';
 
 const SignInComponent = ({
     id,
@@ -8,6 +9,16 @@ const SignInComponent = ({
     password,
     onSubmit,
 }) => {
+
+    
+    const onSuccess = (response) => {
+        console.log(response)
+    }
+
+    const onFailure = (error) => {
+        console.log(error);
+    }
+
   return (
     <>
       <div className="signInBox">
@@ -46,10 +57,22 @@ const SignInComponent = ({
         <div className="signInright">
           <div className="signInOAuthes">
             <div className="signInOAuth">깃허브로 로그인</div>
-            <div className="signInOAuth">카카오톡으로 로그인</div>
+            <div className="signInOAuth">
+            <GoogleLogin
+            className="googleOAuth"
+              clientId={process.env.REACT_APP_GOOGLE_API_KEY}
+              responseType={"id_token"}
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+            >구글로 로그인</GoogleLogin>
+            </div>
+            <a href="https://kauth.kakao.com/oauth/authorize?client_id=	bf4944c7002f01e6ad46e77ed547111d&redirect_uri=http://localhost:3000/kakao/signin&response_type=code">
+                카카오톡로그인
+            </a>
             <div className="signInOAuth">카카오톡으로 로그인</div>
           </div>
         </div>
+        
 
         <span className="siginInToSignUp">
           아직 내 독서기록장이 없다면?&emsp;

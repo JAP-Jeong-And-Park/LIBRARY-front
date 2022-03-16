@@ -8,6 +8,9 @@ import SignIn from './signin/SignIn';
 // import SignIn from './signin/testSignIn';
 import SignUp from './signup/SignUp';
 import NotFound from './notfound/NotFound';
+import MyBookCase from './my/MyBookCase';
+import Search from './search/Search';
+import Recent from './recent/Recent';
 
 import {
   RecoilRoot,
@@ -17,21 +20,21 @@ import {
   useRecoilValue,
 } from "recoil"
 
-// import {testRecoil} from "./state"
 
 function App() {
-  // const [test,setTest] = useRecoilState(testRecoil)
   return (
     <div className="App">
       
       <Routes>
       <Route path="/" element={<Main/>}></Route>
+      <Route path='/recent' element={<Recent/>}></Route>
       <Route path="/signin/*" element={<SignIn/>}></Route>
       <Route path="/signup/*" element={<SignUp/>}></Route>
+      <Route path="/my/*" element={<MyBookCase/>} />
+      <Route path='/search' element={<Search/>}/>
       <Route path="/*" element={<NotFound/>}></Route>
       </Routes>
 
-      {/* {test} */}
     </div>
   );
 }

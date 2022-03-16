@@ -87,7 +87,7 @@
 
 
 .signInOAuth{
-    width: 300px;
+    width: 270px;
     height: 50px;
     border-radius: 20px;
     background-color: wheat;
@@ -111,4 +111,10 @@
     text-decoration: none;
     font-weight: bold;
     font-size: large;
+}
+
+
+.googleOAuth{
+    width: 100%;
+    height: 100%;
 }
